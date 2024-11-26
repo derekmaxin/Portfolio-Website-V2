@@ -1,84 +1,173 @@
 import React from "react"
 import styled from "styled-components"
+
 import Game from "./../../images/projectImages/Connect4/Game.PNG"
+
+import KotlinLogo from "./../../images/techLogos/Kotlin.png"
+import JavaFXLogo from "./../../images/techLogos/JavaFX.png"
+import IntelliJLogo from "./../../images/techLogos/IntelliJ.png"
 
 export const Connect4 = () => {
   return (
-    <AppContainer>
-      <ImagesContainer>
-        <DescriptionContainer>
-          <Title>Connect 4</Title>
-          <Description>
-            I recreated the popular 2-player game known as Connect 4! This app
-            includes slide and drop animations. Key tech: Kotlin, JavaFX,
-            IntelliJ.
-          </Description>
-        </DescriptionContainer>
-        <ResponsiveImage src={Game} alt="Connect 4" />
-      </ImagesContainer>
-    </AppContainer>
+    <div>
+      <Container>
+        <Title>Connect 4</Title>
+
+        <div>
+          <StyledImage src={Game} alt="Game" />
+        </div>
+      </Container>
+      <Features>
+        <div className="feature-list">
+          <div className="feature-item">✓ Board Game</div>
+          <div className="feature-item">✓ Two Players</div>
+          <div className="feature-item">✓ Animations</div>
+          <div className="feature-item">✓ Customizable Board</div>
+          <div className="feature-item">✓ Easy to Use</div>
+          <div className="feature-item">✓ Open Source</div>
+        </div>
+      </Features>
+      <TechBar>
+        <div className="tech-title">Key Tech</div>
+        <div className="tech-list">
+          <div className="tech-item">
+            <img src={KotlinLogo} alt="Kotlin" />
+            Kotlin
+          </div>
+          <div className="tech-item">
+            <img src={JavaFXLogo} alt="JavaFX" />
+            JavaFX
+          </div>
+          <div className="tech-item">
+            <img src={IntelliJLogo} alt="IntelliJ" />
+            IntelliJ
+          </div>
+        </div>
+      </TechBar>
+    </div>
   )
 }
 
-const AppContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`
-
-const ImagesContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`
-
-const ResponsiveImage = styled.img`
-  width: 100%;
-  height: 50vh;
-  max-height: 100%
-
-  margin-left: 10px;
-  margin-right: 10px;
-`
-
-const DescriptionContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 50vh;
-  max-width: 500px;
-
-  margin-left: 10px;
-  margin-right: 10px;
-`
-
-const Title = styled.h1`
-  color: #64ffda;
-  font-size: 48px;
-  margin: 10px 0;
+const Features = styled.div`
+  margin-top: 16px;
+  font-size: 18px;
   text-align: center;
-  padding: 20px;
+  width: 80%;
+  margin: 16px auto;
+
+  .feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .feature-item {
+    flex: 1 1 calc(33.33% - 16px);
+    max-width: calc(33.33% - 16px);
+    text-align: center;
+  }
 
   @media (max-width: 768px) {
-    font-size: 32px;
+    .feature-item {
+      flex: 1 1 calc(50% - 16px);
+      max-width: calc(50% - 16px);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .feature-item {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
   }
 `
 
-const Description = styled.p`
-  width: 100%;
-  height: 48vh;
+const TechBar = styled.div`
+  margin-top: 24px;
+  border: 2px solid #1079c9;
+  color: #1079c9;
+  font-weight: bold;
+  text-align: center;
+  padding: 16px 0;
+  border-radius: 5px;
+  width: 80%;
+  margin: 0 auto;
 
-  margin-left: 10px;
-  margin-right: 10px;
+  .tech-title {
+    margin-bottom: 16px;
+    font-size: 20px;
+  }
 
-  color: #64ffda;
-  font-size: 20px;
+  .tech-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .tech-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 8px;
+  }
+`
+
+const Container = styled.div`
+  text-align: center;
+  margin: 0 auto;
+  padding: 35px;
+  font-family: "Arial", sans-serif;
+  background-color: #fff;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  border-radius: 10px;
 
   @media (max-width: 768px) {
-    font-size: 16px;
+    padding: 20px;
+  }
+`
+
+const StyledImage = styled.img`
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  max-height: 900px;
+
+  object-fit: contain;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 768px) {
+    max-width: 500px;
+    max-height: 800px;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 300px;
+    max-height: 600px;
+  }
+`
+
+const Title = styled.h1`
+  font-size: 40px;
+  //color: #1079c9;
+  text-align: center;
+  //text-decoration: underline;
+  margin-bottom: 24px;
+  //padding: 20px;
+
+  @media (max-width: 480px) {
+    font-size: 24px;
   }
 `
 

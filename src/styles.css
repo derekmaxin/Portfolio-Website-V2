@@ -17,8 +17,8 @@ section {
 
 #home {
   margin-top: -80px;
-  height: 100vh;
-  background: #0a192f;
+  height: 105vh;
+  background: #fff;
 }
 
 #board {
@@ -30,7 +30,7 @@ section {
 }
 
 #interview {
-  background: #5e99f0;
+  background: #fff;
 }
 
 .nav {
@@ -46,6 +46,14 @@ section {
   background-color: #fff;
   padding: 0 1rem;
   box-shadow: 0 0.125rem 0.25rem 0 rgb(0 0 0 / 11%);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    height: auto; /* Let it adjust height for wrapped content */
+    padding: 0 0.5rem;
+    width: 100%;
+  }
 }
 
 .nav__container {
@@ -64,6 +72,13 @@ section {
   flex-flow: row nowrap;
   padding-left: 50px;
   flex: 1;
+}
+
+@media (max-width: 768px) {
+  .nav__container__actions {
+    padding-left: 10px; /* Smaller padding for mobile */
+    justify-content: center; /* Center-align items for smaller screens */
+  }
 }
 
 .active {
